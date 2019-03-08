@@ -2,9 +2,10 @@
 @section('content')
 <b-container>
     <b-row align-h="center">
-        <b-col cols="8">
+        <b-col cols="8">                
             <b-card-group deck>
                 <b-card title="Inicio de sesión">
+                        
                     <b-form method="POST" action="{{ route('login') }}">
                         @csrf
                         <b-form-group label="Correo electrónico:" label-for="email">
