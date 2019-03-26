@@ -1,43 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+<b-container>
+    <b-row align-h="center">
+        <b-col cols="8">
+            <b-card-group deck>
+                <b-card title="Registro">            
+                    <b-form method="POST" action="{{ route('register') }}">
+                        @csrf            
+                        
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                        
 
+                        <b-form-group label-cols-sm="4"  label-align-md="right" label="Nombre: " label-for="name">
+                            
+                                <b-form-input  type="text" name="email" id="email" value="{{ old('name') }}" required autofocus />
                                 @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                                <b-alert show variant="danger">{{ $errors->first('name') }}</b-alert>
+                               
+                            @endif
+                        </b-form-group>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                    
 
-                                @if ($errors->has('email'))
+                       
+                                <b-form-group label-cols-sm="4"  label-align-md="right" label="Correo electrónico:" label-for="email">
+                            
+                                        <b-form-input   type="email" name="email" id="email" value="{{ old('email') }}" required autofocus />
+                                </b-form-group>
+                            @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
+                         
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
@@ -68,10 +67,10 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                    </b-forms>
+                </b-card>
+            </b-card-group>
+        </b-col>
+    </b-row >
+</b-container>
 @endsection

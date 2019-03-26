@@ -8,6 +8,8 @@
                         
                     <b-form method="POST" action="{{ route('login') }}">
                         @csrf
+
+                        
                         <b-form-group label="Correo electrónico:" label-for="email">
                             <b-form-input type="email" name="email" id="email" value="{{ old('email') }}"
                                 placeholder="example@mail.com" required autofocus />
